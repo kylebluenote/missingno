@@ -13,7 +13,7 @@ def matrix(df,
            filter=None, n=0, p=0, sort=None,
            figsize=(25, 10), width_ratios=(15, 1), color=(0.25, 0.25, 0.25),
            fontsize=16, labels=None, sparkline=True, inline=False,
-           freq=None, ax=None):
+           freq=None, ax=None, highlight_color=[0,1,0]):
     """
     A matrix visualization of the nullity of the given DataFrame.
 
@@ -46,7 +46,7 @@ def matrix(df,
     g[z < 0.5] = [1, 1, 1]
     g[z > 0.5] = color
     f0 = np.logical_and(df > 0.1, df < 0.9)
-    g[f0] = [0,1,0]
+    g[f0] = highlight_color
 
 
     # Set up the matplotlib grid layout. A unary subplot if no sparkline, a left-right splot if yes sparkline.
